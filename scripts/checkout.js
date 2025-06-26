@@ -2,6 +2,13 @@ import {cart, removeFromCart, calculateCartQuantity} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
 
+function updateCheckoutQuantityHTML(){
+document.querySelector(
+  '.js-return-to-home-link-quantity').innerHTML = calculateCartQuantity();
+};
+
+updateCheckoutQuantityHTML();
+
 let cartSummaryHTML ='';
 
 
@@ -97,10 +104,6 @@ cart.forEach((cartItem) => {
   `;
 });
 
-//checkout quantity HTML
-document.querySelector(
-  '.js-return-to-home-link-quantity').innerHTML = calculateCartQuantity();
-  
 
 //printing the HTML
 document.querySelector('.js-order-summary')
@@ -118,6 +121,7 @@ document.querySelectorAll('.js-delete-link')
         `.js-cart-item-container-${productId}`
       );
       container.remove();
+      updateCheckoutQuantityHTML();
     });
   });
 
