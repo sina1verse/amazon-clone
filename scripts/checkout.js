@@ -51,7 +51,7 @@ cart.forEach((cartItem) => {
             </span>
             <span class="update-editing-container js-update-editing-container-${matchingProduct.id}">
               <input class="quantity-input js-quantity-input-${matchingProduct.id}">
-              <span class="link-primary js-save-link-${matchingProduct.id}">
+              <span class="link-primary js-save-link js-save-link-${matchingProduct.id}" data-product-id = "${matchingProduct.id}">
                 Save
               </span>
             </span>
@@ -115,7 +115,6 @@ cart.forEach((cartItem) => {
 document.querySelector('.js-order-summary')
   .innerHTML = cartSummaryHTML;
 
-
 //delete button
 document.querySelectorAll('.js-delete-link')
   .forEach((link)=> {
@@ -142,35 +141,38 @@ document.querySelectorAll('.js-update-link').forEach((updateLink)=> {
     document.querySelector(`.js-update-link-${productId}`).classList.add('is-editing-quantity');
 
     document.querySelector(`.js-quantity-label-${productId}`).classList.add('is-editing-quantity');
-    //using save link
-    const saveLink = document.querySelector(`.js-save-link-${productId}`);
+    
+  });
+});
+//accessing save link
+document.querySelectorAll('.js-save-link').forEach((saveLink)=>{
+  const productId = saveLink.dataset.productId;
+  //using save link
+  saveLink.addEventListener('click', ()=> {
+
+    document.querySelector(`.js-update-editing-container-${productId}`).style.display = "none";
+      
+    document.querySelector(`.js-update-link-${productId}`).classList.remove('is-editing-quantity');
+
+    document.querySelector(`.js-quantity-label-${productId}`).classList.remove('is-editing-quantity');
+
     const quantityInput = document.querySelector(`.js-quantity-input-${productId}`);
+    
+    //updating cart and quantity
+    document.querySelector(`.js-quantity-label-${productId}`).innerHTML = Number(quantityInput.value);
 
-    saveLink.addEventListener('click', ()=> {
-      document.querySelector(`
-      .js-update-editing-container-${productId}`).style.display = "none";
-      
-      document.querySelector(`.js-update-link-${productId}`).classList.remove('is-editing-quantity');
-
-      document.querySelector(`.js-quantity-label-${productId}`).classList.remove('is-editing-quantity');
-
-      document.querySelector(`.js-quantity-label-${productId}`).innerHTML = Number(quantityInput.value);
-      
-      //updating cart
-      cart.forEach((cartItem)=> {
-        if (cartItem.productId === productId){
-          cartItem.quantity = Number(quantityInput.value);
-        }
-      });
-      
+    cart.forEach((cartItem)=> {
+      if (cartItem.productId === productId){
+        cartItem.quantity = Number(quantityInput.value);
+      }
       saveToStorage(cart);
       calculateCartQuantity();
       updateCheckoutQuantityHTML();
-      
     });
-  });
+  })
 });
 
-//cart
- //     quantityInput.value
-//js-quantity-label-${matchingProduct.id}"
+
+
+ 
+
