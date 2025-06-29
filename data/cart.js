@@ -9,7 +9,7 @@ export let cart = JSON.parse(localStorage.getItem('cart'))||
     deliveryOptionId: '2'
   }];
 
-function saveToStorage() {
+export function saveToStorage(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
@@ -45,6 +45,7 @@ export function removeFromCart(productId) {
 
   cart = newCart;
 
+
   saveToStorage();
 }
 
@@ -60,4 +61,6 @@ export function updateDeliveryOption(productId, deliveryOptionId){
   matchingItem.deliveryOptionId = deliveryOptionId;
 
   saveToStorage();
+
+
 }
