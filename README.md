@@ -91,7 +91,7 @@ Each order has a status (placed, shipped, delivering, delivered) that is visuali
 
 - [ ] Add realistic API-style data loading instead of static JSON files
 - [ ] Implement persistent storage using browser localStorage
-- [ ] Add more comprehensive unit tests with a test runner (Jest, Vitest)
+- [ ] Add more comprehensive unit tests with a test runner (Jasmine)
 - [ ] Improve accessibility: keyboard navigation, ARIA attributes, semantic HTML
 - [ ] Add a search and filter feature for products
 - [ ] Implement user authentication mock (login/logout)
