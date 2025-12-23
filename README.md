@@ -2,7 +2,7 @@
 
 A front-end clone of the Amazon shopping experience built to practice and showcase modern JavaScript, DOM manipulation, and UI architecture skills.
 
-**Live demo:** https://amazon-clone-ruddy-ten.vercel.app/
+**Live demo:** https://sina-amazon-clone.vercel.app/
 
 ## Tech Stack
 
