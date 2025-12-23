@@ -9,7 +9,7 @@ A front-end clone of the Amazon shopping experience built to practice and showca
 - **HTML** for page structure (home, checkout, orders, tracking)
 - **CSS** for responsive layout, product grid, and Amazon-style UI components
 - **Vanilla JavaScript** for all application logic (cart, checkout, orders, tracking) - no frameworks
-> **Jasmine** for unit testing and test coverage
+--- **Jasmine** for unit testing and test coverage
 
 ## Main Features
 
