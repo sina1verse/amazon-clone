@@ -10,8 +10,8 @@ async function loadPage() {
   await loadProductsFetch();
 
   const value = await new Promise((resolve) => {
-    loadCart(()=>{
-      resolve('value3');
+    loadCart(() => {
+      resolve("value3");
     });
   });
 
@@ -20,7 +20,6 @@ async function loadPage() {
   renderPaymentSummary();
 }
 loadPage();
-
 
 /*
 Promise.all([
@@ -48,7 +47,7 @@ Promise.all([
 
 // }).then((value) => {
 //   console.log(value);
-  
+
 //   return new Promise((resolve) => {
 //     loadCart(()=>{
 //       resolve();
